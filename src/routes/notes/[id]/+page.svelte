@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Textarea } from '$lib/components/ui/textarea/index.js';
 	import { marked } from 'marked';
-	import VoiceRecorder from '$lib/components/voice-recorder.svelte';
 	let { data } = $props();
 
 	$effect(() => {
@@ -24,11 +23,11 @@
 
 	function handleTranscriptCommand(event: CustomEvent) {
 		const { type, transcript } = event.detail;
-		
+
 		if (type === 'crossTodos') {
 			// Update markdown
 			const lines = markdown.split('\n');
-			const updatedLines = lines.map(line => {
+			const updatedLines = lines.map((line) => {
 				if (line.trim().startsWith('- [ ]')) {
 					return line.replace('- [ ]', '- [x]');
 				}
@@ -38,8 +37,6 @@
 		}
 	}
 </script>
-
-<VoiceRecorder on:transcriptCommand={handleTranscriptCommand} />
 
 <div class="mx-1 mb-2 flex items-center justify-between">
 	<p class="text-sm text-muted-foreground">

@@ -5,6 +5,7 @@
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { items } from '$lib/data/sidebarItems';
+	import VoiceRecorder from '$lib/components/voice-recorder.svelte';
 
 	function handleSelect(item: (typeof items)[number]) {
 		selectedItem.set(item);
@@ -39,7 +40,7 @@
 			</Sidebar.GroupContent>
 		</Sidebar.Group>
 	</Sidebar.Content>
-	<!-- <Sidebar.Footer class="mb-4"> -->
-		<!-- <VoiceRecorder /> -->
-	<!-- </Sidebar.Footer> -->
+	<Sidebar.Footer class="mb-4">
+		<VoiceRecorder />
+	</Sidebar.Footer>
 </Sidebar.Root>
